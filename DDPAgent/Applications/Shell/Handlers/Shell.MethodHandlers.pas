@@ -254,7 +254,7 @@ begin
       raise Exception.Create('Campo obbligatorio "command_id" mancante.');
 
     Result := TgrBsonArray.Create([
-      TgrBsonDocument.Create.Add('success', True)
+      Params
     ]);
 
     if Assigned(FCallMethod) then
@@ -281,7 +281,7 @@ begin
       raise Exception.Create('Campo obbligatorio "error" mancante.');
 
     Result := TgrBsonArray.Create([
-      TgrBsonDocument.Create.Add('success', True)
+      Params
     ]);
 
     if Assigned(FCallMethod) then

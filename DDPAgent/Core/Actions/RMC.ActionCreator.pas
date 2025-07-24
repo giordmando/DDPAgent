@@ -591,21 +591,8 @@ end;
 procedure TActionCreatorAgent.SetServices;
 
 begin
-
   FAgentStore.SetAgentData(FAgentData);
   FAgentStore.SetServices;
-  {Setto il registry delle sottoscrizioni}
-  {
-  var SubSessions := THandleSubscribe.Create(FDDPClient,
-   SESSIONS_SUBSCRIPTION, TgrBsonDocument.Create.Add('machine_id', FAgentId));
-
-  var SubCommands := THandleSubscribe.Create(FDDPClient,
-   COMMANDS_SUBSCRIPTION, TgrBsonDocument.Create.Add('machine_id', FAgentId));
-
-  LSubscriptionRegistry := GetSubscriptionRegistry;
-  LSubscriptionRegistry.RegisterCollection(SubSessions);
-  LSubscriptionRegistry.RegisterCollection(SubCommands);
-  }
 end;
 
 procedure TActionCreatorAgent.OnDisconnect(const ACode: Integer);
