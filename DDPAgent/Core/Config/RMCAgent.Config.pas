@@ -111,7 +111,6 @@ begin
   FChannelType := 'ddp';
   FHttpURL := 'http://localhost:3000';
   FDppURL := 'ws://127.0.0.1:3000/websocket';
-  //FDppURL := 'wss://console.supremocontrol.com/websocket';
   FHttpTimeout := 30000;
   FHttpRetries := 3;
   FReconnectAttempts := 5;
