@@ -35,8 +35,6 @@ type
                 FAgentHandlers: TArray<ICollectionHandler>;
                 FAgentId: string;
                 FAgentData: IAgentData;
-                //FShellSessionService: IApplicationService;
-
 
                 procedure InitializeHandlers;
                 procedure HandleGeneralActions(const AActionType: string; const ADoc: TgrBsonDocument);
@@ -92,7 +90,7 @@ procedure TStoreAgent.InitializeHandlers;
 var
   H: ICollectionHandler;
 begin
-  if (FAgentId = '') or not Assigned(FAgentData) then //or not Assigned(FShellSessionService) then
+  if (FAgentId = '') or not Assigned(FAgentData) then
     Exit;
 
   // crea tutti gli handler in un colpo solo
@@ -108,7 +106,6 @@ end;
 procedure TStoreAgent.SetServices;
 begin
   WriteLn('[StoreAgent] Setting up services...');
-  //FShellSessionService := AShellSessionService;
   InitializeHandlers;
   WriteLn('[StoreAgent] Services configured successfully');
 end;

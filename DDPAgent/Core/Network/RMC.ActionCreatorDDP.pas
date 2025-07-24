@@ -37,7 +37,6 @@ begin
   WriteLn(AJsonDoc.ToJson);
   WriteLn('*******  ********');
 
-  // *** TEST DIRETTO FUNZIONA!!!!!!***
   WriteLn('[DEBUG TActionCreatorDDP] Testing direct Store access...');
 
   if Assigned(FAgentStore) then

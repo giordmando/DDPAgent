@@ -66,7 +66,7 @@ begin
   inherited Create;
   FAgentId := AgentId;
   FAgentData := AgentData;
-  FShellService := ShellSessionService; // TODO QUI va recuperato il servizio Singleton?
+  FShellService := ShellSessionService;
   FOnDataChanged := OnDataChanged;
   FHandlers := TDictionary<string, TGenProc>.Create;
   RegisterHandlers;
@@ -85,7 +85,7 @@ end;
 
 function TSessionHandler.GetCollectionName: string;
 begin
-  Result := 'sessions'; // From SESSIONS_SUBSCRIPTION = 'agent.sessions'
+  Result := 'sessions';
 end;
 
 function TSessionHandler.CanHandle(const AActionType: string): Boolean;
@@ -224,7 +224,7 @@ end;
 
 function TCommandHandler.GetCollectionName: string;
 begin
-  Result := 'commands'; // From COMMANDS_SUBSCRIPTION = 'agent.commands'
+  Result := 'commands';
 end;
 
 function TCommandHandler.CanHandle(const AActionType: string): Boolean;

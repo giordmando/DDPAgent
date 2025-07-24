@@ -366,7 +366,6 @@ begin
   FLock.Enter;
   try
     if Assigned(FAgentData) then
-      //FAgentData.SendOutput(FAgentId, ASessionId, 'stdout', ALine);
       FAgentData.OnMethod(COMMAND_OUTPUT, TgrBsonDocument.Create
             .Add('machine_id', FAgentId)
             .Add('session_id', ASessionId)
@@ -384,7 +383,6 @@ begin
   FLock.Enter;
   try
     if Assigned(FAgentData) then
-      //FAgentData.SendOutput(FAgentId, ASessionId, 'stderr', ALine);
       FAgentData.OnMethod(COMMAND_OUTPUT, TgrBsonDocument.Create
             .Add('machine_id', FAgentId)
             .Add('session_id', ASessionId)
@@ -454,10 +452,7 @@ begin
       end;
 
       // *** SALVA STATO COMANDO NEL DATABASE ***
-      // Assumendo che IAgentData abbia metodi per aggiornare lo stato del comando
       try
-        // Metodo principale per completare il comando
-        //FAgentData.SendCommandComplete(ACommandId, AExitCode);
         FAgentData.OnMethod(COMMAND_COMPLETED, TgrBsonDocument.Create
             .Add('machine_id', FAgentId)
             .Add('command_id', ACommandId)
@@ -493,7 +488,6 @@ begin
     messagerror:= messagerror + Format(' \nReason: %s', [AErrorMessage]);
     messagerror:=messagerror+' \n========================================';
       // 1. Invia messaggio di errore alla sessione
-      //FAgentData.SendOutput(FAgentId, ASessionId, 'stderr',
       //  '========================================');
       FAgentData.OnMethod(COMMAND_OUTPUT, TgrBsonDocument.Create
             .Add('machine_id', FAgentId)
@@ -505,8 +499,6 @@ begin
 
       // 2. Aggiorna stato comando nel database come fallito
       try
-        //FAgentData.SendCommandComplete(ACommandId, EXIT_CODE_VALIDATION_ERROR);
-
         FAgentData.OnMethod(COMMAND_COMPLETED, TgrBsonDocument.Create
             .Add('machine_id', FAgentId)
             .Add('command_id', ACommandId)
@@ -552,8 +544,6 @@ begin
             .Add('timestamp', DateToISO8601(Now, True)));
       // 2. Aggiorna stato comando nel database come fallito
       try
-        //FAgentData.SendCommandComplete(ACommandId, EXIT_CODE_EXECUTION_ERROR);
-
         FAgentData.OnMethod(COMMAND_COMPLETED, TgrBsonDocument.Create
             .Add('machine_id', FAgentId)
             .Add('command_id', ACommandId)

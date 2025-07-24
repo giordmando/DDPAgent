@@ -74,8 +74,6 @@ begin
       begin
         WriteLn(Format('[Core] Creating collection handlers for application: %s', [AppFactory.GetApplicationName]));
 
-
-        //if Supports(ShellService, IShellSessionService, TempShellSess) then
         AppHandlers := AppFactory.CreateHandlers(AgentId, AgentData, OnDataChanged);
           for Handler in AppHandlers do
             AllHandlers.Add(Handler);

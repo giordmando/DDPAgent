@@ -185,13 +185,6 @@ begin
   end;
 
   // Esegui comando
-  {FShellRunner.ExecuteCommand(
-    Command,
-    FOnOutput,//HandleRunnerOutput,
-    FOnError,//HandleRunnerError,
-    FOnExit//HandleRunnerExit
-  );
-   }
   FShellRunner.ExecuteCommand(
     Command,
     HandleRunnerOutput,

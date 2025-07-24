@@ -41,7 +41,6 @@ procedure TShellServiceFactory.RegisterShellSessionService(
   const AMaxSessions: Integer;
   const AAuthRulesFile: string
   );
-
 begin
   // Crea le dipendenze nell'ordine corretto
   FAgentId := AAgentId;
@@ -49,9 +48,6 @@ begin
   FShellRunnerFactory := AShellRunnerFactory;
   FMaxSessions := AMaxSessions;
   FAuthRulesFile := AAuthRulesFile;
-
-  // Crea il servizio principale
-  //Result := TShellSessionService.Create(Validator, Limiter, Executor, Repository, OutputHandler);
 end;
 
 function TShellServiceFactory.CreateShellSessionService(
